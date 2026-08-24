@@ -14,7 +14,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.atlasapp.atlas.R.drawable.atlasnome
@@ -22,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.splashscreen.R
 
 @Composable
-fun FundoLayout(content: @Composable () -> Unit)
+fun FundoLayout(telaAtual: Int, content: @Composable () -> Unit)
 {
     Box(modifier = Modifier.background(BrancoAtlas).fillMaxSize())
     {
@@ -32,14 +34,29 @@ fun FundoLayout(content: @Composable () -> Unit)
             Image(
                 painter = painterResource(atlasnome),
                 contentDescription = "Logo Nome",
-                modifier = Modifier.size(220.dp)
+                modifier = Modifier.size(220.dp).padding(bottom = 35.dp)
             )
         }
         Canvas(modifier = Modifier.fillMaxSize()){
             drawRoundRect(
-                color = AzulAtlas,
-
+                color = if (telaAtual == 1) AzulAtlas else CinzaAtlas,
+                topLeft = Offset(x = size.width * 0.21f, y = size.height * 0.15f),
+                cornerRadius = CornerRadius(25f,25f),
+                size = Size(180f,33f)
             )
+            drawRoundRect(
+                color = if (telaAtual == 2)AzulAtlas else CinzaAtlas,
+                topLeft = Offset(x = size.width * 0.42f, y = size.height * 0.15f),
+                cornerRadius = CornerRadius(25f,25f),
+                size = Size(180f,33f)
+            )
+            drawRoundRect(
+                color = if (telaAtual == 3)AzulAtlas else CinzaAtlas,
+                topLeft = Offset(x = size.width * 0.63f, y = size.height * 0.15f),
+                cornerRadius = CornerRadius(25f,25f),
+                size = Size(180f,33f)
+            )
+
             drawCircle(
                 color = AzulAtlas,
                 radius = 97.dp.toPx(),
@@ -60,6 +77,7 @@ fun FundoLayout(content: @Composable () -> Unit)
                 radius = 105.dp.toPx(),
                 center = Offset(x = size.width * 0.05f, y = size.height * 0.96f)
             )
+
         }
         content()
     }

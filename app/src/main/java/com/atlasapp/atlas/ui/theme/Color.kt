@@ -4,7 +4,7 @@ import androidx.compose.ui.graphics.Color
 
 val AzulAtlas = Color(0xFF004789)
 val BrancoAtlas = Color(0xFFE6F0FA)
-
+val CinzaAtlas = Color(0xFF8EA4B8)
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)

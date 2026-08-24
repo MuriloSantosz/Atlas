@@ -1,49 +1,89 @@
 package com.atlasapp.atlas
 
+import android.Manifest
+import android.R.attr.canRecord
 import android.os.Bundle
-import android.window.SplashScreen
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.indication
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.atlasapp.atlas.ui.telas.FundoLayout
-import com.atlasapp.atlas.ui.telas.LoginScreen
+import com.atlasapp.atlas.ui.telas.CadastroDefVisual
+import com.atlasapp.atlas.ui.telas.CadastroResponsavel
+import com.atlasapp.atlas.ui.telas.LoginDefVisual
+import com.atlasapp.atlas.ui.telas.LoginResponsavel
+import com.atlasapp.atlas.ui.telas.TelaInicial
+import com.atlasapp.atlas.ui.telas.TipoPerfil
 import com.atlasapp.atlas.ui.theme.AtlasTheme
-import com.atlasapp.atlas.ui.theme.AzulAtlas
-import com.atlasapp.atlas.ui.theme.BrancoAtlas
+import androidx.compose.runtime.setValue
+import kotlin.contracts.contract
 
 class MainActivity : ComponentActivity() {
+
+    val speechToText by lazy {
+        SpeechToText(application)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            var canRecord by remember {
+                mutableStateOf(false)
+            }
 
+            val recordAudioLauncher =  rememberLauncherForActivityResult(
+                contract = ActivityResultContracts.RequestPermission(),
+                onResult = { isGranted ->
+                    canRecord = isGranted
+                }
+                )
+            LaunchedEffect(key1 = recordAudioLauncher) {
+                recordAudioLauncher.launch(Manifest.permission.RECORD_AUDIO)
+            }
+            val state by speechToText.state.collectAsState()
             AtlasTheme {
-                LoginScreen()
-                FundoLayout()
+                val navController = rememberNavController()
+                NavHost(navController = navController, startDestination = "cadastrodefvisual") {
+                    composable(route = "telainicial") {
+                        TelaInicial(navController = navController)
+                    }
 
+                    composable(route = "tipoperfil") {
+                        TipoPerfil(navController = navController)
+                    }
 
+                    composable(route = "cadastroresponsavel") {
+                        CadastroResponsavel(navController = navController)
+                    }
+
+                    composable(route = "loginresponsavel") {
+                        LoginResponsavel(navController = navController)
+                    }
+
+                    composable(route = "cadastrodefvisual")
+                    {
+                        CadastroDefVisual(navController = navController,
+                            speechToText = speechToText
+                        )
+                    }
+
+                    composable(route = "logindefvisual")
+                    {
+                        LoginDefVisual(navController = navController)
+                    }
+
+                }
             }
 
         }
