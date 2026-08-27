@@ -1,5 +1,6 @@
 package com.atlasapp.atlas.ui.telas
 
+
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -24,24 +25,18 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.atlasapp.atlas.R.drawable.call_end
+import com.atlasapp.atlas.R.drawable.id_card
+import com.atlasapp.atlas.R.drawable.mail
 import com.atlasapp.atlas.R.drawable.visibility_off
 import com.atlasapp.atlas.ui.theme.AzulAtlas
 import com.atlasapp.atlas.ui.theme.BrancoAtlas
 import com.atlasapp.atlas.ui.theme.FundoLayout
 import com.atlasapp.atlas.ui.theme.inclusivesansFontFamily
-import com.atlasapp.atlas.R.drawable.mic
-import com.atlasapp.atlas.R.drawable.id_card
-import com.atlasapp.atlas.R.drawable.call_end
-import com.atlasapp.atlas.R.drawable.mail
-import com.atlasapp.atlas.R.drawable.visibility_off
-
-
-import org.w3c.dom.Text
 
 @Composable
 fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavController) {
@@ -92,6 +87,7 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                     colors = TextFieldDefaults.colors(
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
+                        unfocusedTextColor = Color.Black,
                         focusedTextColor = Color.Black,
                         focusedLabelColor = AzulAtlas,
                         unfocusedLabelColor = AzulAtlas
@@ -118,6 +114,7 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
                         focusedTextColor = Color.Black,
+                        unfocusedTextColor = Color.Black,
                         focusedLabelColor = AzulAtlas,
                         unfocusedLabelColor = AzulAtlas
                     )
@@ -143,6 +140,7 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
                         focusedTextColor = Color.Black,
+                        unfocusedTextColor = Color.Black,
                         focusedLabelColor = AzulAtlas,
                         unfocusedLabelColor = AzulAtlas
                     )
@@ -167,6 +165,7 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
                         focusedTextColor = Color.Black,
+                        unfocusedTextColor = Color.Black,
                         focusedLabelColor = AzulAtlas,
                         unfocusedLabelColor = AzulAtlas
                     )
@@ -192,6 +191,7 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
                         focusedTextColor = Color.Black,
+                        unfocusedTextColor = Color.Black,
                         focusedLabelColor = AzulAtlas,
                         unfocusedLabelColor = AzulAtlas
                     )
@@ -217,6 +217,7 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
                         focusedTextColor = Color.Black,
+                        unfocusedTextColor = Color.Black,
                         focusedLabelColor = AzulAtlas,
                         unfocusedLabelColor = AzulAtlas
                     )

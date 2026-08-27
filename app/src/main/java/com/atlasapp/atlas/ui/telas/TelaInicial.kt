@@ -31,8 +31,10 @@ fun TelaInicial(modifier: Modifier = Modifier, navController: NavController) {
             Column(modifier = Modifier) {
                 Spacer(modifier = Modifier.padding(top = 55.dp))
                 OutlinedButton(
-                    onClick = {navController.navigate("TipoPerfil")},
-                    modifier = Modifier.width(280.dp).height(59.dp),
+                    onClick = { navController.navigate("TipoPerfil") },
+                    modifier = Modifier
+                        .width(280.dp)
+                        .height(59.dp),
                     border = BorderStroke(3.dp, AzulAtlas),
                     colors = ButtonDefaults.outlinedButtonColors(
                         contentColor = AzulAtlas
@@ -44,8 +46,10 @@ fun TelaInicial(modifier: Modifier = Modifier, navController: NavController) {
                 }
                 Spacer(modifier = Modifier.height(15.dp))
                 Button(
-                    onClick = {navController.navigate(route = "TipoPerfilLogin")},
-                    modifier = Modifier.width(280.dp).height(59.dp),
+                    onClick = { navController.navigate(route = "TipoPerfilLogin") },
+                    modifier = Modifier
+                        .width(280.dp)
+                        .height(59.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = AzulAtlas, contentColor = BrancoAtlas
                     )

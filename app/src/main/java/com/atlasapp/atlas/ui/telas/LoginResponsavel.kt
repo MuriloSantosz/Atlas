@@ -28,13 +28,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.atlasapp.atlas.R.drawable.id_card
+import com.atlasapp.atlas.R.drawable.mail
+import com.atlasapp.atlas.R.drawable.visibility_off
 import com.atlasapp.atlas.ui.theme.AzulAtlas
 import com.atlasapp.atlas.ui.theme.BrancoAtlas
 import com.atlasapp.atlas.ui.theme.FundoLayout
 import com.atlasapp.atlas.ui.theme.inclusivesansFontFamily
-import com.atlasapp.atlas.R.drawable.mail
-import com.atlasapp.atlas.R.drawable.visibility_off
 
 @Composable
 fun LoginResponsavel(modifier: Modifier = Modifier, navController: NavController) {

@@ -2,7 +2,7 @@
 <resources>
     <style name="Theme.Atlas.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">#FF004789</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logoprovi</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logoatlas</item>
         <item name="route"></item>
         <item name="postSplashScreenTheme">@style/Theme.Atlas</item>
     </style>
