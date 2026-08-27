@@ -89,8 +89,8 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                     colors = TextFieldDefaults.colors(
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
-                        unfocusedTextColor = Color.Black,
                         focusedTextColor = Color.Black,
+                        unfocusedTextColor = Color.Black,
                         focusedLabelColor = AzulAtlas,
                         unfocusedLabelColor = AzulAtlas
                     )
@@ -189,6 +189,7 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                             modifier = Modifier.size(25.dp)
                         )
                     },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     colors = TextFieldDefaults.colors(
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,

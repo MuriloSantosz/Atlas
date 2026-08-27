@@ -84,6 +84,7 @@ fun LoginResponsavel(modifier: Modifier = Modifier, navController: NavController
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
                         focusedTextColor = Color.Black,
+                        unfocusedTextColor = Color.Black,
                         focusedLabelColor = AzulAtlas,
                         unfocusedLabelColor = AzulAtlas
                     )
@@ -109,6 +110,7 @@ fun LoginResponsavel(modifier: Modifier = Modifier, navController: NavController
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
                         focusedTextColor = Color.Black,
+                        unfocusedTextColor = Color.Black,
                         focusedLabelColor = AzulAtlas,
                         unfocusedLabelColor = AzulAtlas
                     )
