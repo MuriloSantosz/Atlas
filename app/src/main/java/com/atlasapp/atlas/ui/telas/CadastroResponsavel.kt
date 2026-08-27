@@ -13,6 +13,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -24,13 +25,22 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.atlasapp.atlas.R.drawable.visibility_off
 import com.atlasapp.atlas.ui.theme.AzulAtlas
 import com.atlasapp.atlas.ui.theme.BrancoAtlas
 import com.atlasapp.atlas.ui.theme.FundoLayout
 import com.atlasapp.atlas.ui.theme.inclusivesansFontFamily
+import com.atlasapp.atlas.R.drawable.mic
+import com.atlasapp.atlas.R.drawable.id_card
+import com.atlasapp.atlas.R.drawable.call_end
+import com.atlasapp.atlas.R.drawable.mail
+import com.atlasapp.atlas.R.drawable.visibility_off
+
+
 import org.w3c.dom.Text
 
 @Composable
@@ -62,13 +72,94 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                     fontSize = 45.sp,
                     color = BrancoAtlas
                 )
-                Spacer(modifier = Modifier.height(15.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 TextField(
                     state = rememberTextFieldState(),
                     label = {
                         Text(
-                            "Digite seu nome aqui...",
+                            "Nome",
                             fontFamily = inclusivesansFontFamily
+                        )
+                    },
+                    shape = RoundedCornerShape(17.dp),
+                    trailingIcon = {
+                        Icon(
+                            painter = painterResource(id_card),
+                            contentDescription = "card id",
+                            modifier = Modifier.size(25.dp)
+                        )
+                    },
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = BrancoAtlas,
+                        unfocusedContainerColor = BrancoAtlas,
+                        focusedTextColor = Color.Black,
+                        focusedLabelColor = AzulAtlas,
+                        unfocusedLabelColor = AzulAtlas
+                    )
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                TextField(
+                    state = rememberTextFieldState(),
+                    label = {
+                        Text(
+                            "Email",
+                            fontFamily = inclusivesansFontFamily
+                        )
+                    },
+                    shape = RoundedCornerShape(17.dp),
+                    trailingIcon = {
+                        Icon(
+                            painter = painterResource(mail),
+                            contentDescription = "icone email",
+                            modifier = Modifier.size(25.dp)
+                        )
+                    },
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = BrancoAtlas,
+                        unfocusedContainerColor = BrancoAtlas,
+                        focusedTextColor = Color.Black,
+                        focusedLabelColor = AzulAtlas,
+                        unfocusedLabelColor = AzulAtlas
+                    )
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                TextField(
+                    state = rememberTextFieldState(),
+                    label = {
+                        Text(
+                            "Senha",
+                            fontFamily = inclusivesansFontFamily
+                        )
+                    },
+                    shape = RoundedCornerShape(17.dp),
+                    trailingIcon = {
+                        Icon(
+                            painter = painterResource(visibility_off),
+                            contentDescription = "visualização",
+                            modifier = Modifier.size(25.dp)
+                        )
+                    },
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = BrancoAtlas,
+                        unfocusedContainerColor = BrancoAtlas,
+                        focusedTextColor = Color.Black,
+                        focusedLabelColor = AzulAtlas,
+                        unfocusedLabelColor = AzulAtlas
+                    )
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                TextField(
+                    state = rememberTextFieldState(),
+                    label = {
+                        Text(
+                            "Confirmar senha", fontFamily = inclusivesansFontFamily
+                        )
+                    },
+                    trailingIcon = {
+                        Icon(
+                            painter = painterResource(visibility_off),
+                            contentDescription = "visualização",
+                            modifier = Modifier.size(25.dp)
                         )
                     },
                     shape = RoundedCornerShape(17.dp),
@@ -80,16 +171,23 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                         unfocusedLabelColor = AzulAtlas
                     )
                 )
-                Spacer(modifier = Modifier.height(15.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 TextField(
                     state = rememberTextFieldState(),
                     label = {
                         Text(
-                            "Digite seu email aqui...",
+                            "CPF",
                             fontFamily = inclusivesansFontFamily
                         )
                     },
                     shape = RoundedCornerShape(17.dp),
+                    trailingIcon = {
+                        Icon(
+                            painter = painterResource(id_card),
+                            contentDescription = "card id",
+                            modifier = Modifier.size(25.dp)
+                        )
+                    },
                     colors = TextFieldDefaults.colors(
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
@@ -98,65 +196,23 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                         unfocusedLabelColor = AzulAtlas
                     )
                 )
-                Spacer(modifier = Modifier.height(15.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 TextField(
                     state = rememberTextFieldState(),
                     label = {
                         Text(
-                            "Digite sua senha aqui...",
+                            "Telefone",
                             fontFamily = inclusivesansFontFamily
                         )
                     },
                     shape = RoundedCornerShape(17.dp),
-                    colors = TextFieldDefaults.colors(
-                        focusedContainerColor = BrancoAtlas,
-                        unfocusedContainerColor = BrancoAtlas,
-                        focusedTextColor = Color.Black,
-                        focusedLabelColor = AzulAtlas,
-                        unfocusedLabelColor = AzulAtlas
-                    )
-                )
-                Spacer(modifier = Modifier.height(15.dp))
-                TextField(
-                    state = rememberTextFieldState(),
-                    label = { Text("Confirmar senha...", fontFamily = inclusivesansFontFamily) },
-                    shape = RoundedCornerShape(17.dp),
-                    colors = TextFieldDefaults.colors(
-                        focusedContainerColor = BrancoAtlas,
-                        unfocusedContainerColor = BrancoAtlas,
-                        focusedTextColor = Color.Black,
-                        focusedLabelColor = AzulAtlas,
-                        unfocusedLabelColor = AzulAtlas
-                    )
-                )
-                Spacer(modifier = Modifier.height(15.dp))
-                TextField(
-                    state = rememberTextFieldState(),
-                    label = {
-                        Text(
-                            "Digite seu CPF aqui...",
-                            fontFamily = inclusivesansFontFamily
+                    trailingIcon = {
+                        Icon(
+                            painter = painterResource(call_end),
+                            contentDescription = "icone telefone",
+                            modifier = Modifier.size(25.dp)
                         )
                     },
-                    shape = RoundedCornerShape(17.dp),
-                    colors = TextFieldDefaults.colors(
-                        focusedContainerColor = BrancoAtlas,
-                        unfocusedContainerColor = BrancoAtlas,
-                        focusedTextColor = Color.Black,
-                        focusedLabelColor = AzulAtlas,
-                        unfocusedLabelColor = AzulAtlas
-                    )
-                )
-                Spacer(modifier = Modifier.height(15.dp))
-                TextField(
-                    state = rememberTextFieldState(),
-                    label = {
-                        Text(
-                            "Digite seu telefone aqui...",
-                            fontFamily = inclusivesansFontFamily
-                        )
-                    },
-                    shape = RoundedCornerShape(17.dp),
                     colors = TextFieldDefaults.colors(
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
@@ -167,7 +223,7 @@ fun CadastroResponsavel(modifier: Modifier = Modifier, navController: NavControl
                 )
                 Spacer(modifier = Modifier.height(15.dp))
                 Button(
-                    onClick = { navController.navigate("loginresponsavel") },
+                    onClick = { navController.navigate("LoginResponsavel") },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = BrancoAtlas, contentColor = AzulAtlas
                     ),

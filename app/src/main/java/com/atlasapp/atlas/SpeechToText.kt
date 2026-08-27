@@ -6,11 +6,31 @@ import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
-import android.support.v4.os.IResultReceiver
-import androidx.compose.runtime.CompositeKeyHashCode
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.AndroidViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+
+
+class SpeechView(application: Application) : AndroidViewModel(application) {
+    private val speechToText = SpeechToText(application)
+    val state: StateFlow<SpeechToTextState> = speechToText.state
+
+    fun startListening(languadeCode: String = "pt-BR") {
+        speechToText.startListening(languadeCode)
+    }
+
+    fun stopListening(){
+        speechToText.stopListening()
+    }
+}
 
 class SpeechToText(
     private val app: Application
@@ -112,3 +132,4 @@ data class SpeechToTextState(
     val isSpeaking: Boolean = false,
     val error: String? = null
 )
+

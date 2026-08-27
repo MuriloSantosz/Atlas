@@ -13,6 +13,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -23,13 +24,17 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.atlasapp.atlas.R.drawable.id_card
 import com.atlasapp.atlas.ui.theme.AzulAtlas
 import com.atlasapp.atlas.ui.theme.BrancoAtlas
 import com.atlasapp.atlas.ui.theme.FundoLayout
 import com.atlasapp.atlas.ui.theme.inclusivesansFontFamily
+import com.atlasapp.atlas.R.drawable.mail
+import com.atlasapp.atlas.R.drawable.visibility_off
 
 @Composable
 fun LoginResponsavel(modifier: Modifier = Modifier, navController: NavController) {
@@ -69,6 +74,13 @@ fun LoginResponsavel(modifier: Modifier = Modifier, navController: NavController
                         )
                     },
                     shape = RoundedCornerShape(15.dp),
+                    trailingIcon = {
+                        Icon(
+                            painter = painterResource(mail),
+                            contentDescription = "icone email",
+                            modifier = Modifier.size(25.dp)
+                        )
+                    },
                     colors = TextFieldDefaults.colors(
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
@@ -87,6 +99,13 @@ fun LoginResponsavel(modifier: Modifier = Modifier, navController: NavController
                         )
                     },
                     shape = RoundedCornerShape(15.dp),
+                    trailingIcon = {
+                        Icon(
+                            painter = painterResource(visibility_off),
+                            contentDescription = "visualização",
+                            modifier = Modifier.size(25.dp)
+                        )
+                    },
                     colors = TextFieldDefaults.colors(
                         focusedContainerColor = BrancoAtlas,
                         unfocusedContainerColor = BrancoAtlas,
@@ -97,7 +116,7 @@ fun LoginResponsavel(modifier: Modifier = Modifier, navController: NavController
                 )
                 Spacer(modifier = Modifier.height(25.dp))
                 Button(
-                    onClick = { navController.navigate("telainicial") },
+                    onClick = { navController.navigate("TelaInicial") },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = BrancoAtlas, contentColor = AzulAtlas
                     ),

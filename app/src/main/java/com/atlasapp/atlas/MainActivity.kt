@@ -25,13 +25,13 @@ import com.atlasapp.atlas.ui.telas.TelaInicial
 import com.atlasapp.atlas.ui.telas.TipoPerfil
 import com.atlasapp.atlas.ui.theme.AtlasTheme
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import com.atlasapp.atlas.ui.telas.TipoPerfilLogin
 import kotlin.contracts.contract
 
 class MainActivity : ComponentActivity() {
 
-    val speechToText by lazy {
-        SpeechToText(application)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
@@ -42,45 +42,53 @@ class MainActivity : ComponentActivity() {
                 mutableStateOf(false)
             }
 
-            val recordAudioLauncher =  rememberLauncherForActivityResult(
+            val recordAudioLauncher = rememberLauncherForActivityResult(
                 contract = ActivityResultContracts.RequestPermission(),
                 onResult = { isGranted ->
                     canRecord = isGranted
                 }
-                )
+            )
             LaunchedEffect(key1 = recordAudioLauncher) {
                 recordAudioLauncher.launch(Manifest.permission.RECORD_AUDIO)
             }
-            val state by speechToText.state.collectAsState()
+            val speechView: SpeechView = viewModel()
             AtlasTheme {
                 val navController = rememberNavController()
-                NavHost(navController = navController, startDestination = "cadastrodefvisual") {
-                    composable(route = "telainicial") {
+                NavHost(navController = navController, startDestination = "TelaInicial") {
+                    composable(route = "TelaInicial") {
                         TelaInicial(navController = navController)
                     }
 
-                    composable(route = "tipoperfil") {
+                    composable(route = "TipoPerfil") {
                         TipoPerfil(navController = navController)
                     }
 
-                    composable(route = "cadastroresponsavel") {
+                    composable(route = "TipoPerfilLogin") {
+                        TipoPerfilLogin(navController = navController)
+                    }
+
+                    composable(route = "CadastroResponsavel") {
                         CadastroResponsavel(navController = navController)
                     }
 
-                    composable(route = "loginresponsavel") {
+                    composable(route = "LoginResponsavel") {
                         LoginResponsavel(navController = navController)
                     }
 
-                    composable(route = "cadastrodefvisual")
+                    composable(route = "CadastroDefVisual")
                     {
-                        CadastroDefVisual(navController = navController,
-                            speechToText = speechToText
+                        CadastroDefVisual(
+                            navController = navController,
+                            speechView = speechView
                         )
                     }
 
-                    composable(route = "logindefvisual")
+                    composable(route = "LoginDefVisual")
                     {
-                        LoginDefVisual(navController = navController)
+                        LoginDefVisual(
+                            navController = navController,
+                            speechView = speechView
+                        )
                     }
 
                 }

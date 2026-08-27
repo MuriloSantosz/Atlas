@@ -1,6 +1,5 @@
 package com.atlasapp.atlas.ui.telas
 
-import android.graphics.Canvas
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,13 +10,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.DrawerState
-import androidx.compose.material3.DrawerValue
-import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,7 +27,7 @@ import com.atlasapp.atlas.ui.theme.FundoLayout
 import com.atlasapp.atlas.ui.theme.inclusivesansFontFamily
 
 @Composable
-fun TipoPerfil(modifier: Modifier = Modifier, navController: NavController) {
+fun TipoPerfilLogin(modifier: Modifier = Modifier, navController: NavController) {
     FundoLayout(telaAtual = 2) {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center)
         {
@@ -62,7 +56,7 @@ fun TipoPerfil(modifier: Modifier = Modifier, navController: NavController) {
 
 
                 Button(
-                    onClick = { navController.navigate("CadastroDefVisual") },
+                    onClick = { navController.navigate("LoginDefVisual") },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = BrancoAtlas, contentColor = AzulAtlas
                     ),
@@ -81,7 +75,7 @@ fun TipoPerfil(modifier: Modifier = Modifier, navController: NavController) {
                 Spacer(modifier = Modifier.height(20.dp))
 
                 Button(
-                    onClick = {navController.navigate("CadastroResponsavel") },
+                    onClick = { navController.navigate("LoginResponsavel") },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = BrancoAtlas, contentColor = AzulAtlas
                     ),
